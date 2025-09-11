@@ -7,9 +7,9 @@ import pandas as pd
 import yaml
 from tqdm import tqdm
 
-from .convert_vdo_to_skeletons import convert_vdo_to_skeleton_main
-from .deblur_vdo_using_BIN import deblur_vdo_using_BIN_main
-from .norm_standardize import norm_standardize
+from data_preparation.convert_vdo_to_skeletons import convert_vdo_to_skeleton_main
+from data_preparation.deblur_vdo_using_BIN import deblur_vdo_using_BIN_main
+from data_preparation.norm_standardize import norm_standardize
 
 # Create a parser object
 args = argparse.ArgumentParser()
@@ -61,7 +61,7 @@ os.makedirs(os.path.join(config["target_folder"], "dev"), exist_ok=True)
 os.makedirs(os.path.join(config["target_folder"], "train"), exist_ok=True)
 os.makedirs(os.path.join(config["target_folder"], "test"), exist_ok=True)
 
-# Extract the text files
+# Extract the meta data text files
 logging.info("Extracting the text files")
 for split in ["dev", "train", "test"]:
     csv_path = os.path.join(PHOENIX_BASE_FOLDER, "annotations", "manual", f"PHOENIX-2014-T.{split}.corpus.csv")
@@ -91,7 +91,7 @@ for split in ["dev", "train", "test"]:
             continue
 logging.info("All text files extracted successfully")
 
-# Create a video from folder
+# Create a video from pictures in folder
 logging.info("Creating the video files")
 for split in ["dev", "train", "test"]:
     video_parent_folder = os.path.join(PHOENIX_BASE_FOLDER, "features", "fullFrame-210x260px", split)
@@ -145,7 +145,7 @@ if config["use_bin"]:
 else:
     logging.info("BIN is not used for deblurring the video")
 
-# Create skeleton files
+# Create skeleton files (.npy) from the video files
 logging.info("Creating the skeleton files")
 for split in ["dev", "train", "test"]:
     convert_vdo_to_skeleton_main(

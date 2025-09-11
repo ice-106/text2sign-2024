@@ -6,9 +6,9 @@ import os
 import yaml
 from tqdm import tqdm
 
-from .convert_vdo_to_skeletons import convert_vdo_to_skeleton_main
-from .deblur_vdo_using_BIN import deblur_vdo_using_BIN_main
-from .norm_standardize import norm_standardize
+from .data_preparation.convert_vdo_to_skeletons import convert_vdo_to_skeleton_main
+from .data_preparation.deblur_vdo_using_BIN import deblur_vdo_using_BIN_main
+from .data_preparation.norm_standardize import norm_standardize
 
 # Create a parser object
 args = argparse.ArgumentParser()

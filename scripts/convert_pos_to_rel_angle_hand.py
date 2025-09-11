@@ -48,8 +48,8 @@ if __name__ == "__main__":
         config["input_files"] = [config["input_file"]]
         config["output_files"] = [config["output_file"]]
 
-    NUM_JOINT = 553
-    NUM_HAND_JOINT = 21
+    NUM_JOINT = 553 # 21 right hand + 21 left hand + 478 face https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker (Mesh) + 33 pose https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker
+    NUM_HAND_JOINT = 21 # for each hand https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker
     global_min = np.load(config["global_min_path"])
     global_max = np.load(config["global_max_path"])
 

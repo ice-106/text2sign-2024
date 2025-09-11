@@ -20,6 +20,13 @@ dependencies = [
     "wandb>=0.12.10",
     "ipykernel>=6.29.5",
     "seaborn>=0.13.2",
+    "trimesh>=4.7.4",
+    "imageio>=2.37.0",
+    "pyrender>=0.1.45",
+    "visualize>=0.5.1",
+    "shapely>=2.1.1",
+    "smplx>=0.1.28",
+    "torch>=2.6.0",
 ]
 
 [dependency-groups]
