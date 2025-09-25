@@ -12,6 +12,7 @@ CONFIG_PATH = "./configs/compute_fid.yaml"
 with open(CONFIG_PATH, "r") as config_file:
     config = yaml.safe_load(config_file)
 
+# Compute FID for each model in the config folder
 
 def compute_fid(config_folder: str):
     config_files = os.listdir(config_folder)

@@ -249,6 +249,12 @@ def create_sign_language_video(
     sign_language_data = [[float(word) for word in line.split()] for line in sign_language_data]
 
     for idx in range(len(sign_language_data)):
+        # Check if video already exists
+        output_path = save_name_format.format(index=idx)
+        if os.path.exists(output_path):
+            print(f"Video#{idx} already exists at {output_path}, skipping...")
+            continue
+            
         # Use the data
         data = sign_language_data[idx]
         data = np.array(data)
@@ -378,3 +384,16 @@ def create_sign_language_video(
         )
 
         print(f"Video#{idx} saved successfully!")
+
+
+if __name__ == "__main__":
+    # Example usage
+    create_sign_language_video(
+        file_name="/Users/imaeany/Desktop/Oat/Coding/ISE/senior_project/Capstone/data/extracted_scraped_data/train.skels",
+        connection_list=connection_pairs(),
+        joint_number=553,
+        coordinate=3,
+        frame_per_sec_number=24,
+        save_name_format="./output_video_#{index}.mp4",
+        is_show_only_hand=False,
+    )

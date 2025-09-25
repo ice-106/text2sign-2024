@@ -24,7 +24,7 @@ with open(args.config_path, "r") as config_file:
     config = yaml.safe_load(config_file)
 
 # Login to wandb
-wandb.login(key=config["wandb_api_key"])
+wandb.login(key=os.getenv("WANDB_API_KEY"))
 
 # Load the model
 model_hyperparameters = config["model_hyperparameters"]

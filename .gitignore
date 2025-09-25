@@ -15,6 +15,7 @@ data/*
 
 *.pth
 *.ckpt
+*.pkl
 
 .obsidian
 
@@ -35,3 +36,5 @@ assets/BIN/demo_blur
 mediapipe_skeleton_test/
 *_logs/
 wandb/
+
+.env

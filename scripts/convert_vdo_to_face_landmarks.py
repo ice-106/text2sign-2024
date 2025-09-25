@@ -11,7 +11,7 @@ from mediapipe.tasks.python import vision
 from mediapipe.tasks.python.vision import RunningMode
 from tqdm import tqdm
 
-from capstone_utils.dataclasses import VDOFaceLandmarks
+from capstone_utils.data_models import VDOFaceLandmarks
 
 # Create a parser object
 argparser = argparse.ArgumentParser(description="Convert VDO to face landmarks")
